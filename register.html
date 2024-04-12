@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            color:black;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #c5e8ee;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            max-width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0615e6;
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e94c4c;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #db2525;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="register.php" method="post">
+            <h2>Create Account</h2>
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" name="mobile" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+    <script>
+        function changeBackgroundColor() {
+            var randomColor = 'rgb(' +
+                Math.floor(Math.random() * 256) + ',' +
+                Math.floor(Math.random() * 256) + ',' +
+                Math.floor(Math.random() * 256) + ')';
+
+            document.body.style.backgroundColor = randomColor;
+
+            setTimeout(changeBackgroundColor, 2000);
+        }
+
+        changeBackgroundColor();
+    </script>
+</body>
+</html>

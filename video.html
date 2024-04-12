@@ -1,0 +1,231 @@
+  <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css">
+    <title>
+       DisNet
+      </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <meta content="noindex, nofollow" name="robots"/>
+    <meta content="noindex, nofollow" name="robots"/></head>
+    <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="projfi.html">
+        DisNet
+       </a>
+    <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+    <div class="nav-link search-link">
+    <div class="search-box">
+    <input class="form-control" placeholder="Search" type="text"/>
+    <button type="submit">
+    <i class="fas fa-search">
+    </i>
+    </button>
+    </div>
+    </div>
+    </li>
+    <li class="nav-item active">
+    <a class="nav-link" href="projfi.html">
+           Home
+          </a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">
+           About
+          </a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link profile-link" href="projfi.html">
+    <img alt="Profile Image" src="/home/nanthan/Pictures/zoro-favicon.ico"/>
+    </a>
+    </li>
+    </ul>
+    </div>
+    </nav>
+ <style>
+    body {
+    font-family: Arial, sans-serif;
+    font-size: medium;
+    background-image: url('/home/nanthan/Desktop/project2023/moviehunter/css/images/body-bg.gif');
+    }
+
+    .navbar-dark .navbar-brand {
+        text-overflow: clip;
+        text-transform: capitalize;
+        color: black;
+        font-weight:bold;
+    }
+    .bg-dark {
+        font-weight: bold;
+        background-color: orange!important;
+    }
+    .navbar-brand {
+    font-weight: bold;
+    color: red;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        color: rgb(255 1 1);
+    }
+    .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+        font-weight: bold;
+        color: #0794ff;
+    }
+
+    .navbar-nav .nav-link {
+    padding-right: 15px;
+    }
+
+    .navbar-nav .nav-link.active {
+    font-weight: bold;
+    }
+
+    .navbar-nav .nav-link.search-link {
+    padding: 0;
+    }
+
+    .navbar-nav .nav-link.search-link .search-box {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 2px;
+    }
+
+    .navbar-nav .nav-link.search-link .search-box input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 5px;
+    color: red;
+    }
+
+    .navbar-nav .nav-link.search-link .search-box button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 5px;
+    cursor: pointer;
+    }
+
+    .navbar-nav .nav-link.profile-link {
+    padding: 0;
+    }
+
+    .navbar-nav .nav-link.profile-link img {
+    width: 40px;
+    height: 40px;
+    border-radius: 80%;
+    object-fit: cover;
+    }
+
+
+
+        #player-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: pink;
+        }
+
+        #player {
+            width: 100%;
+        }
+
+       
+        .button:hover {
+         box-shadow: 0px 0px 50px #FFFFFF;
+        }
+
+        footer {
+        background-color: black;
+        padding: 20px 0;
+        text-align: center;
+        }
+        footer a {
+        margin: 0 10px;
+        }
+    </style>
+    <title>Video Player Page</title>
+</head>
+<body>
+  <div>
+<div id="player-container">
+    <video id="player" controls>
+        Your browser does not support the video tag.
+    </video>
+  </div>
+    <div id="movie-header">
+        <h1 id="movie-title">Your Interest Head1</h1>
+        <p>
+        </div>
+      </div>
+        <!-- You can add more information like rating, genre, etc. here -->
+
+      <footer>
+      <div class="container">
+      <div class="row">
+      <div class="col-md-12">
+      <a href="projfi.html">
+             Home
+            </a>
+      <a href="https://www.youtube.com/@NGstudiotamil">
+             YouTube
+            </a>
+      <a href="#">
+             Instagram
+            </a>
+      <a href="#">
+             Twitter
+            </a>
+      </div>
+      </div>
+      </div>
+      </footer>
+      </html>
+
+<script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const player = new Plyr('#player');
+
+    // Get video URL from query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoUrl = urlParams.get('videoUrl');
+
+    if (videoUrl) {
+        // Set video source dynamically
+        const source = document.createElement('source');
+        source.src = videoUrl;
+        source.type = 'video/mp4';
+        player.media.appendChild(source);
+
+        // Example: Listen for the play event
+        player.on('play', event => {
+            console.log('Playing', event);
+        });
+
+        // You can add more Plyr events and customize the player as needed
+    }
+});
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</body>
+</html>

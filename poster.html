@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Posters Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        overflow: hidden; /* Hide horizontal scrollbar */
+    }
+    .wrapper {
+        display: flex;
+        overflow: hidden; /* Hide overflow */
+    }
+    .slide {
+        flex: 0 0 33.33%; /* Set width for 3 posters per slide */
+        position: relative;
+        transition: transform 0.5s ease;
+    }
+    .poster {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .poster img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+    .poster:hover {
+        transform: scale(1.05);
+    }
+    .title-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 18px;
+    }
+    .poster:hover .title-overlay {
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+<div class="wrapper" id="wrapper">
+    <div class="slide">
+        <div class="poster">
+            <img src="image/apharan.jpg" alt="Movie 1">
+            <div class="title-overlay">Movie 1</div>
+        </div>
+        <div class="poster">
+            <img src="image/Aot.jpg" alt="Movie 2">
+            <div class="title-overlay">Movie 2</div>
+        </div>
+        <div class="poster">
+            <img src="image/apharan.jpg" alt="Movie 1">
+            <div class="title-overlay">Movie 5</div>
+        </div>
+        <div class="poster">
+            <img src="image/apharan.jpg" alt="Movie 1">
+            <div class="title-overlay">Movie 5</div>
+        </div>
+        <div class="poster">
+            <img src="image/apharan.jpg" alt="Movie 1">
+            <div class="title-overlay">Movie 5</div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="poster">
+            <img src="image/Aot.jpg" alt="Movie 2">
+            <div class="title-overlay">Movie 6</div>
+        </div>
+        <div class="poster">
+            <img src="image/apharan.jpg" alt="Movie 1">
+            <div class="title-overlay">Movie 7</div>
+        </div>
+        <div class="poster">
+            <img src="image/Aot.jpg" alt="Movie 2">
+            <div class="title-overlay">Movie 8</div>
+        </div>
+    </div>
+    <!-- Add more slides as needed -->
+</div>
+
+<script>
+    const wrapper = document.getElementById('wrapper');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= wrapper.children.length) {
+            currentSlide = 0;
+        }
+        updateSlides();
+    }
+
+    function prevSlide() {
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = wrapper.children.length - 1;
+        }
+        updateSlides();
+    }
+
+    function updateSlides() {
+        const newTransform = `translateX(-${currentSlide * 100}%)`;
+        wrapper.style.transform = newTransform;
+    }
+
+    // Auto slide every 3 seconds
+    setInterval(nextSlide, 3000);
+</script>
+
+</body>
+</html>

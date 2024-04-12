@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player</title>
+</head>
+<body>
+    <h1>Video Player</h1>
+    <div id="video-container">
+        <!-- Video will be dynamically added here -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const imdbID = urlParams.get('imdbID');
+
+            if (imdbID) {
+                const apiKey = 'YOUR_OMDB_API_KEY';
+                const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}&plot=full`;
+
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        const videoContainer = document.getElementById('video-container');
+
+                        if (data.Response === 'True') {
+                            const videoTitle = data.Title;
+                            const videoSrc = data.Poster === 'N/A' ? 'https://via.placeholder.com/300x450' : data.Poster;
+                            const videoDetails = `
+                                <h2>${videoTitle}</h2>
+                                <video controls width="300" height="450">
+                                    <source src="${videoSrc}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            `;
+
+                            videoContainer.innerHTML = videoDetails;
+                        } else {
+                            videoContainer.innerHTML = `<p>Failed to load video.</p>`;
+                        }
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            } else {
+                // Handle missing IMDb ID
+                const videoContainer = document.getElementById('video-container');
+                videoContainer.innerHTML = `<p>IMDb ID not provided.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

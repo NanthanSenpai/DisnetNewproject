@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>DisNet</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="projfi.css" />
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Fork Awesome CDN Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+    integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-wcLt7fpDhkjtdxq62et3+6XTXS4UB61Ck1Wap1jnrTn5ETIcXVEEMKyJHd+FJ/bLbS/qKdWXq33mXgHuNM2THA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="icontab.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet"><style>
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<header id="main-header">
+  <div>
+  <div class="icons">
+    <i class="fa fa-bars" id="menu-bars"></i>
+  </div>
+  </div>
+  <div>
+  <div class="logo">
+    <img src="image/disentlogo.png" alt="Logo">
+  </div>
+</div>
+<form id="search-form" action="result.html" method="GET">
+  <div class="search-container">
+    <input id="search-input" type="search" name="movie" placeholder="Search for a movie...">
+    <span class="search-addon">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <button type="submit" class="filter-btn">Search</button>
+    </span>
+  </div>
+</form>
+  <div id="menu-bars">
+  <ul id="menu-items">
+    <!-- Social icons -->
+    <li><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a></li>
+  </ul>
+</div>
+<div class="toggle-container">
+  <label class="toggle-label"></label>
+  <label class="toggle-switch">
+    <input type="checkbox" onclick="toggleMode()">
+    <span class="toggle-slider"></span>
+  </label>
+  <label class="toggle-label"></label>
+</div>
+  <div class="overlay" id="menu-overlay"></div>
+  <div class="side-menu" id="side-menu">
+    <button class="btn" id="menu-close-button"><i class="fa fa-angle-left" aria-hidden="true"></i>Close menu</button>
+<button class="btn" id="community-button"><i class="fa fa-comments" aria-hidden="true"></i>Community</button>
+    <div class="links">
+      <a href="userprofile.html"><p>user-profile</p></a>
+      <a href="projfi.html"><p>Home</p></a>
+      <a href="tamildub.html"><p>TAMIL MOVIE</p></a>
+      <a href="ENGLISHMOVIES.html"><p>ENGLISH MOVIE</p></a>
+      <p>______________</p>
+      <a href="anime.html"><p>ANIME</p></a>
+      <a href="CARTOON.html"><p>CARTOON</p></a>
+      <a href="horror.html"><p>HORROR</p></a>
+      <a href="thriller.html"><p>THRILLER</p></a>
+      <a href="comedy.html"><p>COMEDY</p></a>
+      <a href="romance.html"><p>ROMMANCE</p></a>
+      <a href="action.html"><p>ACTION</p></a>
+      <a href="fantacy.html"><p>FANTACY</p></a>
+      <a href="drama.html"><p>DRAMA</p></a>
+      <a href="scifi.html"><p>SCI-FI</p></a>
+    </div>
+  </div>
+  </div>
+  <a href="userprofile.html">
+  <button class="btn" id="login-button">USER</button>
+  </a>
+</header>
+<!-- HEADER::END -->
+<!-- Movie Banners Section -->
+<section id="movie-banners">
+<!-- Carousel -->
+<div class="carousel slide" data-ride="carousel" id="movieCarousel">
+<ol class="carousel-indicators">
+<li class="active" data-slide-to="0" data-target="#movieCarousel">
+</li>
+<li data-slide-to="1" data-target="#movieCarousel">
+</li>
+<li data-slide-to="2" data-target="#movieCarousel">
+</li>
+</ol>
+<div class="carousel-inner">
+<div class="carousel-item active" style="background-image: url('https://images.hdqwalls.com/download/aquaman-and-the-lost-kingdom-movie-8k-5h-7680x4320.jpg');">
+<div class="carousel-caption">
+<h2 id="ff">
+       AQUAMAN
+      </h2>
+<a class="btn btn-primary" href="player.html?videoUrl=movies/mashle-1.mp4" rel="nofollow noindex">
+       Watch Now
+      </a>
+</div>
+</div>
+<div class="carousel-item" style="background-image: url('https://images3.alphacoders.com/132/1329183.jpeg');">
+<div class="carousel-caption">
+<h2 id="ff">
+       ONE PIECE
+      </h2>
+<a class="btn btn-primary" href="player.html?videoUrl=movies/mashle-2.mp4" rel="nofollow noindex">
+       Watch Now
+      </a>
+</div>
+</div>
+<div class="carousel-item" style="background-image: url('https://wallpapercave.com/wp/wp8512036.jpg');">
+<div class="carousel-caption">
+<h2 id="ff">
+       TENET
+      </h2>
+<a class="btn btn-primary" href="player.html?videoUrl=movies/mashle-3.mp4" rel="nofollow noindex">
+       Watch Now
+      </a>
+</div>
+</div>
+</div>
+<a class="carousel-control-prev" data-slide="prev" href="#movieCarousel" rel="nofollow noindex" role="button">
+<span aria-hidden="true" class="carousel-control-prev-icon">
+</span>
+<span class="sr-only">
+     Previous
+    </span>
+</a>
+<a class="carousel-control-next" data-slide="next" href="#movieCarousel" rel="nofollow noindex" role="button">
+<span aria-hidden="true" class="carousel-control-next-icon">
+</span>
+<span class="sr-only">
+     Next
+    </span>
+</a>
+</div>
+</section>
+<section id="imagfont">
+  <h1><p>Award winning Movies</p></h1>
+  <div class="owl-carousel">
+  <div class="movie-poster" onclick="playMovie('https://vidmoly.to/embed-qxubedb61noa.html')">
+    <img src="https://m.media-amazon.com/images/M/MV5BMDQ5MGY5NzEtZDYwMS00MDdhLTk4YTYtZDAwMmUyN2Q0MjkxXkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_FMjpg_UX1000_.jpg" alt="Movie 1">
+  </div>
+  <div class="movie-poster" onclick="playMovie('https://short.ink/3AmfPP27D')">
+    <img src="https://timesofindia.indiatimes.com/photo/64692285.cms" alt="Movie 1">
+  </div>
+  <div class="movie-poster" onclick="playMovie('https://short.ink/WoBtfzOEa')">
+    <img src="https://preview.redd.it/some-really-great-tamil-movie-posters-drop-what-yall-think-v0-ch1d4xizu7xa1.jpg?width=443&format=pjpg&auto=webp&s=fe2b694dc9566d10f40e905ea89fd40396ebe530" alt="Movie 1">
+  </div>
+  <div class="movie-poster" onclick="playMovie('https://short.ink/y1Ou_ffzp')">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaRIrrwu5u0mzs_WDTzhorYnx5kCELIMMxS2iTRwDdetfZf5rh_gvIWh4vOpjSxOKxbciM2I3rby9RkS0z3NLv9QXIz6j2aTWAagoYWkFy2ZTScyFm3rQAbdpFWARLnj5CL3VAMtZ0EZLaqUAifL07vSc85UZINUmJaSrPFh7PNGy2bdWCXQekB4wB/s679/viduthalai-part-1-tamil-movie-posters%20(1).jpg" alt="Movie 1">
+  </div>
+  <div class="movie-poster" onclick="playMovie('https://short.ink/C9Y0OKph_i')">
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d8e031f5-1ee9-4dc9-8d52-851ce4adc93d/dflrs2p-f59ba47c-ad0a-4238-a2b1-4db2b64e0c56.jpg/v1/fill/w_1280,h_1951,q_75,strp/maaveeran___movie_poster_design_by_sivadigitalart_dflrs2p-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTk1MSIsInBhdGgiOiJcL2ZcL2Q4ZTAzMWY1LTFlZTktNGRjOS04ZDUyLTg1MWNlNGFkYzkzZFwvZGZscnMycC1mNTliYTQ3Yy1hZDBhLTQyMzgtYTJiMS00ZGIyYjY0ZTBjNTYuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.hkXPBsECd6e0JEyrVeIyqt7RhlNM8oYxMf9ydspXmjI" alt="Movie 1">
+  </div>
+  <div class="movie-poster" onclick="playMovie('https://short.ink/C9Y0OKph_i')">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvpZ2xuyaPsW9BOUd2J0fx9VTQnnngHqwUrrkWgNA_GSHqndQ0" alt="Movie 1">
+  </div>
+  </div>
+</section>
+<section class="newupdate" id="newmov">
+  <div class="newupd">
+    <div class="content">
+      <div class="image left">
+        <img src="image/kenshiro-fist-of-the-north-star.gif" alt="Second Image">
+      </div>
+      <div class="text">
+        <p>
+          <a href="admin/veedu.php">Click here to WATCH FREE movies</a>
+        </p>
+      </div>
+      <div class="image right">
+        <img src="image/luffyyo.gif" alt="First Image">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="imagfont">
+  <h1><p>New Updated Movies</p></h1>
+  <div>
+  <div class="owl-carousel">
+    <!-- Add your 13 images here -->
+    <a href="player.html?videoUrl=tok.mp4">
+    <div class="item"><img src="image/p.jfif" alt="Image 1"></div>
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <div class="item"><img src="image/u.jfif" alt="Image 2"></div>
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <div class="item"><img src="image/g.jpg" alt="Image 3"></div>
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <div class="item"><img src="image/a.jpg" alt="Image 4"></div>
+    <a href="player.html?videoUrl=tok.mp4">
+    <div class="item"><img src="image/l.jpg" alt="Image 5"></div>
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <div class="item"><img src="Aot.jpg" alt="Image 6"></div>
+    </a>
+    </div>
+    <h1>Leaving Soon</h1>
+    <div>
+      <div class="owl-carousel">
+        <!-- Add your 13 images here -->
+        <a href="player.html?videoUrl=tok.mp4">
+          <div class="item"><img src="image/asur.jpg" alt="Image 1"></div>
+          </a>
+          <a href="player.html?videoUrl=tok.mp4">
+          <div class="item"><img src="image/b2f.webp" alt="Image 2"></div>
+          </a>
+          <a href="player.html?videoUrl=tok.mp4">
+          <div class="item"><img src="image/bat.jpg" alt="Image 3"></div>
+          </a>
+          <a href="player.html?videoUrl=tok.mp4">
+          <div class="item"><img src="image/black mirror.jpg" alt="Image 4"></div>
+          <a href="player.html?videoUrl=tok.mp4">
+          <div class="item"><img src="image/demonSlayer.jpg" alt="Image 5"></div>
+          </a>
+          <a href="player.html?videoUrl=tok.mp4">
+          <div class="item"><img src="image/loki.png" alt="Image 6"></div>
+          </a>
+        <!-- ... repeat for other images ... -->
+      </div>
+      <h1>Best Choice</h1>
+      <div>
+        <div class="owl-carousel">
+          <!-- Add your 13 images here -->
+          <a href="player.html?videoUrl=tok.mp4">
+            <div class="item"><img src="image/infinity.jpg" alt="Image 1"></div>
+            </a>
+            <a href="player.html?videoUrl=tok.mp4">
+            <div class="item"><img src="image/aven.webp" alt="Image 2"></div>
+            </a>
+            <a href="player.html?videoUrl=tok.mp4">
+            <div class="item"><img src="image/criminal.jpg" alt="Image 3"></div>
+            </a>
+            <a href="player.html?videoUrl=tok.mp4">
+            <div class="item"><img src="image/dark knight.jpg" alt="Image 4"></div>
+            <a href="player.html?videoUrl=tok.mp4">
+            <div class="item"><img src="image/firefly.jpg" alt="Image 5"></div>
+            </a>
+            <a href="player.html?videoUrl=tok.mp4">
+            <div class="item"><img src="image/green mile.jpg" alt="Image 6"></div>
+            </a>
+          <!-- ... repeat for other images ... -->
+        </div>
+      </div>
+    </div>
+    <!-- ... repeat for other images ... -->
+  </div>
+</section>
+<section id="imagfont">
+  <div class="highviewd">
+  <h1>Most Watched Movies</h1>
+  <div class="scroll-container">
+    <div class="slideimage">
+    <a href="player.html?videoUrl=https://short.ink/ZhgjXzFJp">
+    <img src="image/lok.jpg">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/str.webp">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/wanda.jpg">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/spid.webp">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/aven.webp">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/b2f.webp">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/dark knight.jpg">
+    </a>
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/str.webp">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/wanda.jpg">
+    </a>
+    <a href="player.html?videoUrl=tok.mp4">
+    <img src="image/spid.webp">
+    </a>
+    </div>
+    </div>
+    </div>
+</section>
+<!-- Video Section -->
+<section>
+  <div class="video-wrapper">
+    <video id="player" autoplay muted controls>t
+      <source src="tok.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollToTop" title="Go to top">
+    <i class="fa fa-angle-up"></i>
+  </button>
+  <!-- Scroll-to-Top Button End -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="projfi.html"><i class="fas fa-home"></i> Home</a>
+          <a href="https://www.youtube.com/@NGstudiotamil"><i class="fab fa-youtube"></i> YouTube</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="subbmisfor">
+      <div>
+        <form action="https://formbold.com/s/9xdYl" method="POST">
+          <input type="text" placeholder="Name" name="name">
+          <input type="tel" placeholder="Phone Number" name="phone">
+          <input type="email" placeholder="Email" name="email">
+          <input type="text" placeholder="Subject" name="subject">
+          <textarea name="message" placeholder="Type your message"></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="image-container">
+        <div class="image-overlay"></div>
+        <img src="image/zoro.gif" alt="Image">
+      </div>
+    </div>
+    
+  </footer>
+  <!-- Bootstrap & jQuery JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5EX1dKRJ2DbrJL/BhFDGNEeLZ5D+qhrSZOhh2IMtuFFP"
+  crossorigin="anonymous">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="projfi.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+  <!-- Including Swiper.js -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+</html>

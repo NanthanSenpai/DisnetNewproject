@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>DisNet</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="projfi.css" />
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Fork Awesome CDN Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+    integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="icontab.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet"><style>
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<header id="main-header">
+  <div>
+  <div class="icons">
+    <i class="fa fa-bars" id="menu-bars"></i>
+  </div>
+  </div>
+  <div>
+  <div class="logo">
+    <img src="image/disentlogo.png" alt="Logo">
+  </div>
+</div>
+<form id="search-form" action="result.html" method="GET">
+  <div class="search-container">
+    <input id="search-input" type="search" name="movie" placeholder="Search for a movie...">
+    <span class="search-addon">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <button type="submit" class="filter-btn">Search</button>
+    </span>
+  </div>
+</form>
+  <div class="toggle-container">
+    <label class="toggle-label"></label>
+    <label class="toggle-switch">
+      <input type="checkbox" onclick="toggleMode()">
+      <span class="toggle-slider"></span>
+    </label>
+    <label class="toggle-label"></label>
+  </div>
+  <div class="overlay" id="menu-overlay"></div>
+  <div class="side-menu" id="side-menu">
+    <button class="btn" id="menu-close-button"><i class="fa fa-angle-left" aria-hidden="true"></i>Close menu</button>
+<button class="btn" id="community-button"><i class="fa fa-comments" aria-hidden="true"></i>Community</button>
+    <div class="links">
+      <a href="userprofile.html"><p>user-profile</p></a>
+      <a href="projfi.html"><p>Home</p></a>
+      <a href="tamildub.html"><p>TAMIL MOVIE</p></a>
+      <a href="ENGLISHMOVIES.html"><p>ENGLISH MOVIE</p></a>
+      <p>______________</p>
+      <a href="anime.html"><p>ANIME</p></a>
+      <a href="CARTOON.html"><p>CARTOON</p></a>
+      <a href="horror.html"><p>HORROR</p></a>
+      <a href="thriller.html"><p>THRILLER</p></a>
+      <a href="comedy.html"><p>COMEDY</p></a>
+      <a href="romance.html"><p>ROMMANCE</p></a>
+      <a href="action.html"><p>ACTION</p></a>
+      <a href="fantacy.html"><p>FANTACY</p></a>
+      <a href="drama.html"><p>DRAMA</p></a>
+      <a href="scifi.html"><p>SCI-FI</p></a>
+    </div>
+  </div>
+  </div>
+  <a href="loginpage.html">
+  <button class="btn" id="login-button">Login</button>
+  </a>
+</header>
+<br><br>
+<br>
+<!-- HEADER::END -->
+    <style>
+        /* Add your CSS styles here */
+ /* Add your CSS styles here */
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.movie {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.movie:hover {
+    transform: translateY(-5px);
+}
+
+.movie img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.movie-details {
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.result {
+    animation: fade-in 0.5s ease-out;
+}
+
+    </style>
+<body>
+    <section id="result">
+    <div class="result">
+            <h1>Search Results</h1>
+    <div class="movies-container" id="movies-container">
+        <!-- Results will be dynamically added here -->
+    </div>
+    </div>
+</section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const searchQuery = searchParams.get('search');
+    const apiKey = '43f37d67';
+    const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchQuery}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const moviesContainer = document.getElementById('movies-container');
+
+            if (data.Response === 'True') {
+                const movies = data.Search;
+
+                movies.forEach(movie => {
+                    const movieElement = document.createElement('div');
+                    movieElement.classList.add('movie');
+
+                    const poster = movie.Poster === 'N/A' ? 'https://via.placeholder.com/150' : movie.Poster;
+                    const movieDetails = `
+                        <img src="${poster}" alt="${movie.Title} Poster" onclick="playVideo('${movie.imdbID}')">
+                        <div class="movie-details">
+                            <h3>${movie.Title}</h3>
+                            <p>${movie.Year}</p>
+                        </div>
+                    `;
+
+                    movieElement.innerHTML = movieDetails;
+                    moviesContainer.appendChild(movieElement);
+                });
+            } else {
+                const errorMessage = `<p>No results found for "${searchQuery}".</p>`;
+                moviesContainer.innerHTML = errorMessage;
+            }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});
+
+function playVideo(imdbID) {
+    window.location.href = `player2.html?imdbID=${imdbID}`;
+}
+
+    </script>
+    <script src="projfi.js"></script>
+    <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="projfi.html"><i class="fas fa-home"></i> Home</a>
+          <a href="https://www.youtube.com/@NGstudiotamil"><i class="fab fa-youtube"></i> YouTube</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

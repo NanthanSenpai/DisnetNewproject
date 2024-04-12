@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Music Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #search-form {
+            margin-bottom: 20px;
+        }
+        #results {
+            list-style-type: none;
+            padding: 0;
+        }
+        .video-item {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .thumbnail {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>YouTube Music Search</h1>
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search for a song">
+        <button type="submit">Search</button>
+    </form>
+    <ul id="results"></ul>
+
+    <div id="player"></div>
+
+    <script>
+        async function searchVideos(query) {
+            const apiKey = 'AIzaSyB-XBxMw-6vcNtxhKkvNgYW3FZ7hX89Bik'; // Replace with your YouTube API key
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/search?q=${encodeURIComponent(query)}&part=snippet&maxResults=10&type=video&key=${apiKey}`);
+            const data = await response.json();
+            return data.items;
+        }
+
+        const form = document.getElementById('search-form');
+        const input = document.getElementById('search-input');
+        const results = document.getElementById('results');
+        const player = document.getElementById('player');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const query = input.value.trim();
+            if (!query) return;
+
+            const videos = await searchVideos(query);
+            displayResults(videos);
+        });
+
+        function displayResults(videos) {
+            results.innerHTML = '';
+
+            videos.forEach(video => {
+                const item = document.createElement('li');
+                item.classList.add('video-item');
+                item.dataset.videoId = video.id.videoId; // Store video ID in dataset
+
+                const thumbnail = document.createElement('img');
+                thumbnail.classList.add('thumbnail');
+                thumbnail.src = video.snippet.thumbnails.default.url;
+                thumbnail.alt = video.snippet.title;
+
+                const title = document.createElement('span');
+                title.textContent = video.snippet.title;
+
+                item.appendChild(thumbnail);
+                item.appendChild(title);
+
+                item.addEventListener('click', function() {
+                    const videoId = this.dataset.videoId;
+                    player.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+                });
+
+                results.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>
